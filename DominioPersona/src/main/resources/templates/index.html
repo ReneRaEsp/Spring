@@ -7,6 +7,15 @@
     </head>
     <body>
         <h2>Creacion Persona</h2>
-        <p th:text="mensajePersona"></p>
+        <p th:text="${mensajePersona}"></p>
+        <br/>
+        Nombre: <span th:text="${persona.nombre}"></span>
+        <br/>
+        Apellido: <span th:text="${persona.apellido}"></span>
+        <br/>
+        Email: <span th:text="${persona.email}"></span>
+        <br/>
+        Telefono <span th:text="${persona.telefono}"></span>
+        
     </body>
 </html>

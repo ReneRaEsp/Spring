@@ -1,4 +1,5 @@
-package com.ramesptop.HolaMundo;
+
+package com.ramesptop.HolaThymeleaf;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -8,8 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Slf4j
 public class ControladorInicio {
     @GetMapping("/")
-    public String inicio(){
-        log.info("Ejecutando el controlador Spring MVC");
-        return "Hola Mundo con ThymeLeaf";
+    public String Inicio(){
+        return "index";
     }
+    
 }

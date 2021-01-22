@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>Hola Mundo Thymeleaf</title>
+        <title>Compartir Informacion Con Thymeleaf</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>Inicio Hola mundo</h1>
+        <h2>Compartir Informacion Con Thymeleaf</h2>
         
-        <p>Hola Mundo Thymeleaf!</p>
-        
-        <p th:text="adios"></p>
+         <p th:text="${mensaje}"></p>
+         <p th:text="${saludos}"></p>
     </body>
 </html>

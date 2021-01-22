@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ramesptop</groupId>
-	<artifactId>HolaSpring</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>HolaSpring</name>
-	<description>Hola Mundo con Spring</description>
+	<artifactId>HolaMundo</artifactId>
+	<version>1.0</version>
+	<name>HolaMundo</name>
+	<description>Hola mundo con spring</description>
 	<properties>
 		<java.version>15</java.version>
 	</properties>

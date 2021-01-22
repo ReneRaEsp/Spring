@@ -1,13 +1,13 @@
-package com.ramesptop.HolaSpring;
+package com.ramesptop.HolaMundo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HolaSpringApplication {
+public class HolaMundoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HolaSpringApplication.class, args);
+		SpringApplication.run(HolaMundoApplication.class, args);
 	}
 
 }

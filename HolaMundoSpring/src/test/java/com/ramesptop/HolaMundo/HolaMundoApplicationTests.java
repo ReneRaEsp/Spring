@@ -1,10 +1,10 @@
-package com.ramesptop.HolaSpring;
+package com.ramesptop.HolaMundo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class HolaSpringApplicationTests {
+class HolaMundoApplicationTests {
 
 	@Test
 	void contextLoads() {

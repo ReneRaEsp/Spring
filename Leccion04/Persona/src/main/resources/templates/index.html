@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Listado de Personas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h3>Listado de Personas</h3>
+        <p>Nombre: </p><p th:text="${persona.nombre}"></p><br/>
+         <p>Apellido: </p><p th:text="${persona.apellido}"></p><br/> 
+          <p>Correo: </p><p th:text="${persona.correo}"></p><br/> 
+           <p>Telefono: </p><p th:text="${persona.telefono}"></p><br/> 
+    </body>
+</html>

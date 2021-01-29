@@ -7,6 +7,7 @@
     </head>
     <body>
         <h2 th:text="${titulo}"></h2>
+        <a th:href="@{/agregar}">Crear Persona</a>
      <div th:if="${clientes != null and !clientes.empty}">
         <table border="1">
             
@@ -15,6 +16,8 @@
                 <th>Apellido</th>
                 <th>Telefono</th>
                 <th>Correo</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
             </tr>
          
             <tr th:each="cliente : ${clientes}">
@@ -22,6 +25,8 @@
                 <td th:text="${cliente.apellido}"></td>
                 <td th:text="${cliente.telefono}"></td> 
                 <td th:text="${cliente.correo}"></td>
+                <td><a th:href="@{/editar/} + ${cliente.idCliente}" th:text="Editar"></a></td>
+                <td><a th:href="@{/eliminar/} + ${cliente.idCliente}" th:text="Eliminar"></a></td>
             </tr>
            
         </table>  

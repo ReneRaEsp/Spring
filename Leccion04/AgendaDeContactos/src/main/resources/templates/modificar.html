@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmnls:th="http://www.thymeleaf.org">
+    <head>
+        <title th:text="titulo"></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1 th:text="${titulo}"></h1>
+        <br/>
+        <a th:href="@{/}" th:text="Regresar"></a>
+        <br/>
+        <form th:action="@{/guardar}" method="post" th:object="${contacto}">
+            <input type="hidden" name="idContacto" th:field="*{idContacto}">
+            <label for="nombre">Nombre: </label>
+            <input type="text" name="nombre" th:field="*{nombre}" >
+            <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error en el nombre</span>
+            <br/>
+            <label for="telefono">Telefono: </label>
+            <input type="tel" name="telefono" th:field="*{telefono}">
+            <span th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}">Error en el telefono</span>
+            <br/>
+            <button name="guardar" type="submit" th:text="Guardar"></button>
+        </form>
+    </body>
+</html>

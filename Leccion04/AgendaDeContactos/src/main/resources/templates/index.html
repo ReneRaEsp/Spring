@@ -7,7 +7,27 @@
     </head>
     <body>
         <div>Agenda Telefonica</div>
-        <p th:text="${contacto.nombre}"></p>
-        <p th:text="${contacto.telefono}"></p>
+        <br/>
+        <a th:href="@{/agregar}" th:text="${agregar}"></a>
+        <br/>
+    <div th:if="${contactos != null && !contactos.empty}">
+        <table border="1">
+            <tr>
+                <th>Nombre: </th>
+                <th>Telefono: </th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr th:each="contacto : ${contactos}">
+                <td th:text="${contacto.nombre}"></td>
+                <td th:text="${contacto.telefono}"></td>
+                <td><a th:href="@{/editar/}+${contacto.idContacto}" th:text="Editar"></a></td>
+                <td><a th:href="@{/eliminar/}+${contacto.idContacto}" th:text="Eliminar"></a></td>
+            </tr>
+        </table>
+    </div>
+    <div th:if="${contactos == null || contactos.empty}">
+        <h2 th:text="${mensajeVacio}"></h2>
+    </div>
     </body>
 </html>

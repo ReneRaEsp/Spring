@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+        <header th:replace="layout/plantilla :: header"></header>
         <h2 th:text="${titulo}"></h2>
         <a th:href="@{/agregar}">Crear Persona</a>
      <div th:if="${clientes != null and !clientes.empty}">
@@ -34,5 +35,7 @@
       <div th:if="${clientes == null or clientes.empty}">
           <h2>La lista esta vacia</h2>
       </div>
+        
+        <footer th:replace="layout/plantilla :: footer"></footer>
     </body>
 </html>

@@ -30,9 +30,7 @@ public class ControladorInicio {
     @GetMapping("/agregar")
     public String agregar(Cliente cliente, Model model){
         var titulo = "Datos de la persona";
-        var regresar = "Regresar";
         model.addAttribute("titulo", titulo);
-        model.addAttribute("regresar", regresar);
         return "modificar";
     }
     

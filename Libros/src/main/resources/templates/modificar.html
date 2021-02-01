@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title th:text="${titulo}"></title>
+        <title th:text="#{plantilla.titulo}"></title>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
-        <h1 th:text="${titulo}"></h1>
-        <a th:href="@{/}">Regresar</a>
+        <header th:replace="layout/plantilla :: header"></header>
+        <a th:href="@{/}">[[#{Regresar}]]</a>
         <br/>
         <form th:action="@{/guardar}" method="post" th:object="${libro}">
            <input type="hidden" name="idLibro" th:field="*{idLibro}">
         
-            <label for="titulo">Titulo: </label>
+            <label for="titulo">[[#{index.titulo}]]:</label>
             <input type="text" name="titulo" th:field="*{titulo}" >
             <span th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}">Error en el titulo</span>
             <br/>
-            <label for="genero">Genero: </label>
+            <label for="genero">[[#{index.genero}]]:</label>
             <input type="text" name="genero" th:field="*{genero}" >
             <span th:if="${#fields.hasErrors('genero')}" th:errors="*{genero}">Error en el genero</span>
             <br/>
-            <label for="year">Year: </label>
+            <label for="year">[[#{index.year}]]:</label>
             <input type="number" name="year" th:field="*{year}" >
              <span th:if="${#fields.hasErrors('year')}" th:errors="*{year}">Error en el year</span>
             <br/>
-            <input type="submit" name="guardar" value="Guardar"/>
+            <button type="submit" name="guardar">[[#{modificar.guardar}]]</button>
         </form>
-        
+         <footer th:replace="layout/plantilla :: footer"></footer>
         
     </body>
 </html>

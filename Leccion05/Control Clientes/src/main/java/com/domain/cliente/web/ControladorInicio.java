@@ -7,6 +7,8 @@ import com.domain.cliente.Cliente;
 import com.domain.cliente.service.ClienteService;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -17,20 +19,18 @@ public class ControladorInicio {
     private ClienteService serv;
     
     @GetMapping("/")
-    public String Inicio(Model model){
-        var titulo = "Listado de clientes";
-        
+    public String Inicio(Model model, @AuthenticationPrincipal User user){
+
+        var usuario = user;
+        model.addAttribute("usuario", usuario);
         var clientes = serv.listarClientes();
-        
-        model.addAttribute("clientes", clientes);
-        model.addAttribute("titulo", titulo);
-        
+        model.addAttribute("clientes", clientes);    
         return "index";
     }
     @GetMapping("/agregar")
-    public String agregar(Cliente cliente, Model model){
-        var titulo = "Datos de la persona";
-        model.addAttribute("titulo", titulo);
+    public String agregar(Cliente cliente, Model model, @AuthenticationPrincipal User user){
+        var usuario = user;
+        model.addAttribute("usuario", usuario);
         return "modificar";
     }
     

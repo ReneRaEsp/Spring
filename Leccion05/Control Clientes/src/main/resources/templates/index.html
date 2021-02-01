@@ -1,41 +1,45 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">
-    <head>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head  th:replace="layout/plantilla :: head">
         <title th:text="${titulo}"></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
-        <header th:replace="layout/plantilla :: header"></header>
-        <h2 th:text="${titulo}"></h2>
-        <a th:href="@{/agregar}">Crear Persona</a>
-     <div th:if="${clientes != null and !clientes.empty}">
-        <table border="1">
-            
-            <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Telefono</th>
-                <th>Correo</th>
-                <th>Editar</th>
-                <th>Eliminar</th>
-            </tr>
-         
-            <tr th:each="cliente : ${clientes}">
-                <td th:text="${cliente.nombre}"></td>
-                <td th:text="${cliente.apellido}"></td>
-                <td th:text="${cliente.telefono}"></td> 
-                <td th:text="${cliente.correo}"></td>
-                <td><a th:href="@{/editar/} + ${cliente.idCliente}" th:text="Editar"></a></td>
-                <td><a th:href="@{/eliminar/} + ${cliente.idCliente}" th:text="Eliminar"></a></td>
-            </tr>
-           
-        </table>  
-      </div>
-      <div th:if="${clientes == null or clientes.empty}">
-          <h2>La lista esta vacia</h2>
-      </div>
-        
-        <footer th:replace="layout/plantilla :: footer"></footer>
+        <section class="d-flex justify-content-center flex-column flex-wrap">
+            <header th:replace="layout/plantilla :: header"></header>
+            <section class="row d-flex justify-content-center flex-wrap flex-column bg-primary">
+                <h2 class="text-center m-auto text-light" th:text="#{index.titulo}"></h2>
+                <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/agregar}">[[#{index.crear}]]</a>
+                <div class="col-6 m-auto" th:if="${clientes != null and !clientes.empty}">
+                    <table border="1" class="table table-primary table-striped table-hover rounded">
+
+                        <tr class="table-primary">
+                            <th th:text="#{index.nombre}"></th>
+                            <th th:text="#{index.apellido}"></th>
+                            <th th:text="#{index.telefono}"></th>
+                            <th th:text="#{index.correo}"></th>
+                            <th sec:authorize="hasRole('ROLE_ADMIN')"></th>
+                            <th sec:authorize="hasRole('ROLE_ADMIN')"></th>
+                        </tr>
+
+                        <tr class="table-success" th:each="cliente : ${clientes}">
+                            <td th:text="${cliente.nombre}"></td>
+                            <td th:text="${cliente.apellido}"></td>
+                            <td th:text="${cliente.telefono}"></td> 
+                            <td th:text="${cliente.correo}"></td>
+                            <td sec:authorize="hasRole('ROLE_ADMIN')" ><a th:href="@{/editar/} + ${cliente.idCliente}" th:text="#{index.editar}"></a></td>
+                            <td sec:authorize="hasRole('ROLE_ADMIN')"><a  th:href="@{/eliminar/} + ${cliente.idCliente}" th:text="#{index.eliminar}"></a></td>
+                        </tr>
+
+                    </table>  
+                </div>
+                <div th:if="${clientes == null or clientes.empty}">
+                    <h2>[[#{index.vacia}]]</h2>
+                </div>
+            </section>
+            <footer class="bg-primary" th:replace="layout/plantilla :: footer"></footer>
+        </section> 
     </body>
 </html>

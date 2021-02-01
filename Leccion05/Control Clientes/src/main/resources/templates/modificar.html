@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
+    <head th:replace="layout/plantilla :: head">
         <title th:text="${titulo}"></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"></header>
-        <h3 th:text="${titulo}"></h3>
-        <a th:href="@{/}" th:text="Regresar"></a>
+        <h3 th:text="#{modificar.titulo}"></h3>
+        <a th:href="@{/}" th:text="#{modificar.regresar}"></a>
         <br/>
         <form th:action="@{/guardar}" method="post" th:object="${cliente}">
             <input type="hidden" name="idCliente" th:field="*{idCliente}">
-            <label for="nombre">Nombre: </label>
+            <label for="nombre">[[#{index.nombre}]] </label>
             <input type="text" name="nombre" th:field="*{nombre}">
             <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error en el nombre</span>
             <br/>
-            <label for="apellido">Apellido: </label>
+            <label for="apellido">[[#{index.apellido}]]</label>
             <input type="text" name="apellido" th:field="*{apellido}">
             <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}">Error en el apellido</span>
             <br/>
-            <label for="correo">Correo: </label>
+            <label for="correo">[[#{index.correo}]]</label>
             <input type="email" name="correo" th:field="*{correo}">
             <span th:if="${#fields.hasErrors('correo')}" th:errors="*{correo}">Error en el correo</span>    
             <br/>
-            <label for="telefono">Telefono: </label>
+            <label for="telefono">[[#{index.telefono}]]</label>
             <input type="tel" name="telefono" th:field="*{telefono}">
             <span th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}">Error en telefono</span>
             <br/> 
-            <input type="submit" name="guardar" value="Guardar"/>
+            <input type="submit" name="guardar" th:value="#{modificar.guardar}"/>
         </form>
         <footer th:replace="layout/plantilla :: footer"></footer>
     </body>

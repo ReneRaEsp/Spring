@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head th:replace="layout/plantilla :: head">
-        <title th:text="${titulo}"></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
-        <header th:replace="layout/plantilla :: header"></header>
-        <h3 th:text="#{modificar.titulo}"></h3>
-        <a th:href="@{/}" th:text="#{modificar.regresar}"></a>
-        <br/>
-        <form th:action="@{/guardar}" method="post" th:object="${cliente}">
-            <input type="hidden" name="idCliente" th:field="*{idCliente}">
-            <label for="nombre">[[#{index.nombre}]] </label>
-            <input type="text" name="nombre" th:field="*{nombre}">
-            <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error en el nombre</span>
-            <br/>
-            <label for="apellido">[[#{index.apellido}]]</label>
-            <input type="text" name="apellido" th:field="*{apellido}">
-            <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}">Error en el apellido</span>
-            <br/>
-            <label for="correo">[[#{index.correo}]]</label>
-            <input type="email" name="correo" th:field="*{correo}">
-            <span th:if="${#fields.hasErrors('correo')}" th:errors="*{correo}">Error en el correo</span>    
-            <br/>
-            <label for="telefono">[[#{index.telefono}]]</label>
-            <input type="tel" name="telefono" th:field="*{telefono}">
-            <span th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}">Error en telefono</span>
-            <br/> 
-            <input type="submit" name="guardar" th:value="#{modificar.guardar}"/>
-        </form>
-        <footer th:replace="layout/plantilla :: footer"></footer>
+        <section class="col-12 col-sm-9 contenedor d-flex justify-content-center flex-column flex-wrap">
+            <header th:replace="layout/plantilla :: header"></header>
+
+            <section class="seccion1"> 
+                <h3 class="text-center text-light" th:text="#{modificar.titulo}"></h3>
+                <a class="regresar float-right" th:href="@{/}" th:text="#{modificar.regresar}"></a>
+                <br/>
+                <form class="mt-5 m-auto col-12 col-sm-9" th:action="@{/guardar}" method="post" th:object="${cliente}">
+                    <input type="hidden" name="idCliente" th:field="*{idCliente}">
+                    <label class="form-label" for="nombre">[[#{index.nombre}]] </label>
+                    <input class="form-control" type="text" name="nombre" th:field="*{nombre}">
+                    <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error en el nombre</span>
+                    <br/>
+                    <label class="form-label" for="apellido">[[#{index.apellido}]]</label>
+                    <input  class="form-control"  type="text" name="apellido" th:field="*{apellido}">
+                    <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}">Error en el apellido</span>
+                    <br/>
+                    <label class="form-label" for="correo">[[#{index.correo}]]</label>
+                    <input  class="form-control"  type="email" name="correo" th:field="*{correo}">
+                    <span th:if="${#fields.hasErrors('correo')}" th:errors="*{correo}">Error en el correo</span>    
+                    <br/>
+                    <label class="form-label" for="telefono">[[#{index.telefono}]]</label>
+                    <input  class="form-control"  type="tel" name="telefono" th:field="*{telefono}">
+                    <span th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}">Error en telefono</span>
+                    <br/> 
+                    <input class="guardar" type="submit" name="guardar" th:value="#{modificar.guardar}"/>
+                </form>
+            </section>
+            <footer th:replace="layout/plantilla :: footer"></footer>
+        </section> 
     </body>
 </html>

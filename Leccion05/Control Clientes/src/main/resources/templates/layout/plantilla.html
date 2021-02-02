@@ -8,19 +8,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
         <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}" />
-        <link rel="stylesheet" th:href="@{../css/estilos.css}"/>
+        <link rel="stylesheet" type="text/css" href="static/css/estilos.css" 
+              th:href="@{/css/estilos.css}"/>
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
         <script th:src="@{/webjars/popper/umd/popper.min.js}"></script>
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
     </head>
     <body>
-        <header class="bg-info p-3" th:fragment="header">
-            <h1 class="mt-4 text-center text-success" th:text="#{plantilla.titulo}"></h1>
+        <header class="header p-none p-sm-3" th:fragment="header">
+            <h1 class="titulo mt-4 text-center" th:text="#{plantilla.titulo}"></h1>
             <br/>
-            <h3 class="text-center"><span th:text="#{plantilla.bienvenido}"></span>  <span th:text="${usuario.username}"></span> !</h3>
+            <h3 class="bienvenido text-center"><span th:text="#{plantilla.bienvenido}"></span>  <span th:text="${usuario.username}"></span> </h3>
         </header>
         
-        <footer class="bg-info p-3" th:fragment="footer">
+        <footer class="footer p-none p-sm-3 mb-5" th:fragment="footer">
             <div class="text-center d-flex justify-content-center">
                 <br/>
             <a th:href="@{/(lang = es)}"> ES </a>  |
@@ -31,7 +32,7 @@
                 <div class=" d-flex justify-content-center">
                 <b class="text-center">[[#{plantilla.bienvenido}]] </b><span class="text-center" sec:authentication="name"></span> |
                 <b class="text-center">[[#{plantilla.roles}]]</b><span class="text-center" sec:authentication="principal.authorities"></span> |
-                <button class="ml-4 rounded btn-secondary text-center">[[#{plantilla.logout}]]</button>  
+                <button class=" text-center logout">[[#{plantilla.logout}]]</button>  
                 </div>
             </form>
         </footer>

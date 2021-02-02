@@ -1,0 +1,125 @@
+.contenedor {
+  max-width: 1000px;
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: auto;
+  overflow: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "helvetica";
+  font-size: 16px;
+}
+
+body {
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+.header {
+  background: #202950e6;
+  margin-top: 40px;
+  border-radius: 14px 14px 0 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.header .titulo {
+  color: #f4f4f4;
+}
+.header .bienvenido {
+  color: #f4f4f4;
+}
+
+.seccion1 {
+  min-height: 350px;
+  height: auto;
+  padding: 10px;
+  background: #6fbeec;
+}
+.seccion1 .crear {
+  width: auto;
+  padding: 7px;
+  font-size: 14px;
+  background: rgba(233, 233, 233, 0.92);
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #040404;
+  transition: 1s;
+}
+.seccion1 .crear:hover {
+  background: #434b8deb;
+  color: #f4f4f4;
+}
+
+.editar, .eliminar, .logout, .acceder, .guardar, .regresar {
+  width: auto;
+  padding: 7px;
+  font-size: 14px;
+  background: rgba(233, 233, 233, 0.92);
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #040404;
+  transition: 1s;
+}
+.editar:hover, .eliminar:hover, .logout:hover, .acceder:hover, .guardar:hover, .regresar:hover {
+  background: #434b8deb;
+  color: #f4f4f4;
+}
+
+.logout {
+  padding: 1px;
+}
+
+.tabla {
+  border-radius: 7px;
+}
+
+.regresar {
+  float: right;
+}
+
+.guardar {
+  float: right;
+  border: solid 0 #fff;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border-radius: 0 0 14px 14px;
+  background: #202950e6;
+  color: #f4f4f4;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background: #1756a8;
+  width: 300px;
+  margin: auto;
+  margin-top: 140px;
+  padding: 15px;
+  border-radius: 10px;
+  color: #f4f4f4;
+  box-shadow: 3px 7px 7px 4px rgba(3, 3, 3, 0.4);
+  -moz-box-shadow: 3px 7px 7px 4px rgba(3, 3, 3, 0.4);
+  -webkit-box-shadow: 3px 7px 7px 4px rgba(3, 3, 3, 0.4);
+}
+
+/*# sourceMappingURL=estilos.css.map */

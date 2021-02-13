@@ -13,6 +13,8 @@
     .fila1
         display: flex
         justify-content: center
+        flex-direction: column
+        flex-wrap: wrap
     .fila2
         display: flex
         justify-content: center
@@ -21,5 +23,11 @@
 a
     color: #a6f9fc
     text-decoration: none
+
+@media screen and ( max-width:  500px)
+    .footer
+        .fila1, .fila2
+            p, b, span, a, button
+                font-size: .7rem
 
     

@@ -28,21 +28,27 @@ body {
   justify-content: center;
 }
 .header h1 {
+  font-size: 1.4rem;
   color: white;
 }
 
-.contTabla, .contFormulario {
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: 0.9rem;
+  }
+}
+.contTabla, .contFormulario, .contLogin {
   padding: 20px;
   min-height: 500px;
   background: #03334ef1;
   border-radius: 10px;
 }
-.contTabla .tabla, .contFormulario .tabla {
+.contTabla .tabla, .contFormulario .tabla, .contLogin .tabla {
   width: 100%;
   color: white;
   border-radius: 10px;
 }
-.contTabla .tabla tr th, .contFormulario .tabla tr th {
+.contTabla .tabla tr th, .contFormulario .tabla tr th, .contLogin .tabla tr th {
   border: solid 4px #ffffff4f;
   border-radius: 10px;
   background: #1c83b39a;
@@ -50,33 +56,33 @@ body {
   padding: 5px 0 5px 0;
   transition: 1s;
 }
-.contTabla .tabla tr th:hover, .contFormulario .tabla tr th:hover {
+.contTabla .tabla tr th:hover, .contFormulario .tabla tr th:hover, .contLogin .tabla tr th:hover {
   background: #1c83b3;
   border: solid 4px #47a5d133;
 }
-.contTabla .tabla tr td, .contFormulario .tabla tr td {
+.contTabla .tabla tr td, .contFormulario .tabla tr td, .contLogin .tabla tr td {
   border: solid 4px #ffffff4d;
   border-radius: 10px;
   background: #47a5d1b6;
   cursor: pointer;
   transition: 1s;
 }
-.contTabla .tabla tr td:hover, .contFormulario .tabla tr td:hover {
+.contTabla .tabla tr td:hover, .contFormulario .tabla tr td:hover, .contLogin .tabla tr td:hover {
   background: #47a5d133;
   border: solid 4px #47a5d133;
 }
-.contTabla .tabla tr td .eYE, .contFormulario .tabla tr td .eYE {
+.contTabla .tabla tr td .eYE, .contFormulario .tabla tr td .eYE, .contLogin .tabla tr td .eYE {
   text-decoration: none;
   color: white;
   display: flex;
   justify-content: center;
   transition: 1s;
 }
-.contTabla .tabla tr td .eYE:hover, .contFormulario .tabla tr td .eYE:hover {
+.contTabla .tabla tr td .eYE:hover, .contFormulario .tabla tr td .eYE:hover, .contLogin .tabla tr td .eYE:hover {
   transform: scale(1.1);
 }
 
-.agregar, .regresar {
+.agregar, .regresar, .guardar {
   position: absolute;
   top: 20%;
   right: 2%;
@@ -89,7 +95,7 @@ body {
   justify-content: center;
   align-items: center;
 }
-.agregar .botonAgregar, .agregar .botonRegresar, .regresar .botonAgregar, .regresar .botonRegresar {
+.agregar .botonAgregar, .agregar .botonRegresar, .agregar .botonGuardar, .regresar .botonAgregar, .regresar .botonRegresar, .regresar .botonGuardar, .guardar .botonAgregar, .guardar .botonRegresar, .guardar .botonGuardar {
   color: white;
   text-decoration: none;
   padding: 10px;
@@ -98,18 +104,100 @@ body {
   font-weight: bold;
   transition: 1.3s;
 }
-.agregar .botonAgregar:hover, .agregar .botonRegresar:hover, .regresar .botonAgregar:hover, .regresar .botonRegresar:hover {
+.agregar .botonAgregar:hover, .agregar .botonRegresar:hover, .agregar .botonGuardar:hover, .regresar .botonAgregar:hover, .regresar .botonRegresar:hover, .regresar .botonGuardar:hover, .guardar .botonAgregar:hover, .guardar .botonRegresar:hover, .guardar .botonGuardar:hover {
   background: #01abee;
   transform: scale(1.2);
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 500px) {
+  .agregar, .regresar {
+    position: relative;
+    align-self: center;
+    margin-bottom: 15px;
+    width: 150px;
+    height: 50px;
+  }
+  .agregar .botonAgregar, .agregar .botonRegresar, .regresar .botonAgregar, .regresar .botonRegresar {
+    padding: 12px;
+    font-size: 0.7rem;
+  }
+
+  .contTabla, .contFormulario {
+    padding: 2px;
+    min-height: 20px;
+  }
+  .contTabla .tabla tr td, .contTabla .tabla tr th, .contFormulario .tabla tr td, .contFormulario .tabla tr th {
+    font-size: 0.5rem;
+  }
+  .contTabla .tabla tr td a, .contTabla .tabla tr th a, .contFormulario .tabla tr td a, .contFormulario .tabla tr th a {
+    font-size: 0.7rem;
+  }
+}
+@media screen and (max-width: 1100px) {
   .agregar, .regresar {
     position: relative;
     align-self: center;
     margin-bottom: 15px;
   }
 }
+.formulario {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+}
+.formulario .etiquetas {
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+.formulario .inputs {
+  width: 70%;
+}
+
+.guardar {
+  position: relative;
+  background: #0b676e00;
+}
+
+.contLogin {
+  min-height: 200px;
+  position: absolute;
+  top: 30%;
+  right: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.contLogin .tituloLogin {
+  font-size: 18px;
+  color: white;
+}
+.contLogin form .etiquetaLogin {
+  margin-top: 1rem;
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+}
+.contLogin form .inputLogin {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.contLogin form .botonEnviar {
+  padding: 5px;
+  float: right;
+  color: white;
+  background: #12a1494d;
+  border-radius: 5px;
+  transition: 1s;
+}
+.contLogin form .botonEnviar:hover {
+  background: #042c13a4;
+}
+
 .footer {
   background: #03334ef1;
   margin-top: 27px;
@@ -126,6 +214,8 @@ body {
 .footer .fila1 {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 .footer .fila2 {
   display: flex;
@@ -138,9 +228,14 @@ a {
   text-decoration: none;
 }
 
-@media screen and (max-width: 600) {
-  * {
-    font-size: 8px;
+@media screen and (max-width: 500px) {
+  .footer .fila1 p, .footer .fila1 b, .footer .fila1 span, .footer .fila1 a, .footer .fila1 button, .footer .fila2 p, .footer .fila2 b, .footer .fila2 span, .footer .fila2 a, .footer .fila2 button {
+    font-size: 0.7rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  body {
+    background-size: auto;
   }
 }
 

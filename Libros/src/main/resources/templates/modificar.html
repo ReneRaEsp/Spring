@@ -14,26 +14,28 @@
         
         <br/>
         <div class="contFormulario">
-        <form th:action="@{/guardar}" method="post" th:object="${libro}">
+        <form class="formulario" th:action="@{/guardar}" method="post" th:object="${libro}">
            <input type="hidden" name="idLibro" th:field="*{idLibro}">
         
-            <label for="titulo">[[#{index.titulo}]]</label>
-            <input type="text" name="titulo" th:field="*{titulo}" >
+           <label class="etiquetas" for="titulo">[[#{index.titulo}]]</label>
+           <input class="inputs" type="text" name="titulo" th:field="*{titulo}" >
             <span th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}">Error en el titulo</span>
             <br>
-            <label for="genero">[[#{index.genero}]]</label>
-            <input type="text" name="genero" th:field="*{genero}" >
+            <label class="etiquetas" for="genero">[[#{index.genero}]]</label>
+            <input class="inputs" type="text" name="genero" th:field="*{genero}" >
             <span th:if="${#fields.hasErrors('genero')}" th:errors="*{genero}">Error en el genero</span>
             <br>
-            <label for="year">[[#{index.year}]]</label>
-            <input type="number" name="year" th:field="*{year}" >
+            <label class="etiquetas" for="year">[[#{index.year}]]</label>
+            <input class="inputs" type="number" name="year" th:field="*{year}" >
              <span th:if="${#fields.hasErrors('year')}" th:errors="*{year}">Error en el year</span>
             <br>
-            <label for="isbn">[[#{index.isbn}]]</label>
-            <input type="number" name="isbn" th:field="*{isbn}">
+            <label class="etiquetas" for="isbn">[[#{index.isbn}]]</label>
+            <input class="inputs" type="number" name="isbn" th:field="*{isbn}">
             <span th:if="${#fields.hasErrors('isbn')}" th:errors='*{isbn}'>Error en el isbn</span>
             <br>
-            <button type="submit" name="guardar">[[#{modificar.guardar}]]</button>
+            <div class="guardar">
+            <button class="botonGuardar" type="submit" name="guardar">[[#{modificar.guardar}]]</button>
+            </div>
         </form>
          </div>
          <footer th:replace="layout/plantilla :: footer"></footer>

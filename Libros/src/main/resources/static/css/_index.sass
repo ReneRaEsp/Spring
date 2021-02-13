@@ -1,0 +1,69 @@
+.contTabla, .contFormulario
+    padding: 20px
+    min-height: 500px
+    background: #03334ef1
+    border-radius: 10px
+    .tabla
+        width: 100%
+        //background: #1c83b39a
+        color: white
+        border-radius: 10px
+        tr
+            th
+                border: solid 4px #ffffff4f
+                border-radius: 10px
+                background:  #1c83b39a
+                cursor: pointer
+                padding: 5px 0 5px 0
+                transition: 1s
+                &:hover
+                    background:  #1c83b3
+                    border: solid 4px #47a5d133
+            td
+                border: solid 4px #ffffff4d
+                border-radius: 10px
+                background:  #47a5d1b6
+                cursor: pointer
+                transition: 1s
+                &:hover
+                    background: #47a5d133
+                    border: solid 4px #47a5d133
+                .eYE
+                    text-decoration: none
+                    color: white
+                    display: flex
+                    justify-content: center
+                    transition: 1s
+                    &:hover
+                        transform: scale(1.1)
+
+.agregar, .regresar
+    position: absolute
+    top: 20%
+    right: 2%
+    padding: 7px
+    background: #03334ef1
+    width: 230px
+    height: 100px 
+    border-radius: 10px
+    display: flex
+    justify-content: center
+    align-items: center
+    .botonAgregar, .botonRegresar
+        color: white
+        text-decoration: none
+        padding: 10px
+        background: #86a5b1
+        border-radius: 5px
+        font-weight: bold
+        transition: 1.3s
+        &:hover
+            background: #01abee
+            transform: scale(1.2)
+
+@media screen and (max-width: 1200px)
+    .agregar, .regresar
+        position: relative
+        align-self: center
+        margin-bottom: 15px
+    

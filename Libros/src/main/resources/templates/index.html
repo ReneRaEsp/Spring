@@ -1,28 +1,33 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">
-    <head>
+<html xmlns:th="https://www.thymeleaf.org"
+       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace="layout/plantilla :: head">
         <title th:text="#{plantilla.titulo}"></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"></header>
-        <a th:href="@{/agregar}" th:text="#{index.agregar}"></a>
-        <div th:if="${libros != null && !libros.empty}">
-            <table border="1">
-                <tr>
+        <div sec:authorize="hasRole('ROLE_ADMIN')" class="agregar">
+            <a class="botonAgregar" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/agregar}" th:text="#{index.agregar}"></a>
+        </div>
+        <div class="contTabla" th:if="${libros != null && !libros.empty}">
+           <table class="tabla">
+               <tr class="">
                     <th th:text="#{index.titulo}"></th>
                     <th th:text="#{index.genero}"></th>
                     <th th:text="#{index.year}"></th>
-                    <th> [[#{index.editar}]] </th> 
-                    <th> [[#{index.eliminar}]] </th>
+                    <th th:text="#{index.isbn}"></th>
+                    <th sec:authorize="hasRole('ROLE_ADMIN')"> [[#{index.editar}]] </th> 
+                    <th sec:authorize="hasRole('ROLE_ADMIN')"> [[#{index.eliminar}]] </th>
                 </tr>
                 <tr th:each="libro : ${libros}">
                     <td th:text="${libro.titulo}"></td>
                     <td th:text="${libro.genero}"></td>
                     <td th:text="${libro.year}"></td>
-                    <td><a th:href="@{/editar/} + ${libro.idLibro}" th:text="#{index.editar}"></a></td>
-                    <td><a th:href="@{/eliminar/} + ${libro.idLibro}" th:text="#{index.eliminar}"></a></td>
+                    <td th:text="${libro.isbn}"></td>
+                    <td sec:authorize="hasRole('ROLE_ADMIN')"><a class="eYE" th:href="@{/editar/} + ${libro.idLibro}" th:text="#{index.editar}"></a></td>
+                    <td sec:authorize="hasRole('ROLE_ADMIN')"><a class="eYE" th:href="@{/eliminar/} + ${libro.idLibro}" th:text="#{index.eliminar}"></a></td>
                 </tr>
             </table>
         </div>

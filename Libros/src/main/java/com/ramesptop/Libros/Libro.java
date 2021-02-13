@@ -23,4 +23,7 @@ public class Libro implements Serializable{
     
     @NotEmpty
     public String genero;
+    
+    @NotEmpty
+    public String isbn;
 }

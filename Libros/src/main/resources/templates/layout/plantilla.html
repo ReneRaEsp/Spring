@@ -1,16 +1,31 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-    <head>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:fragment="head">
         <title th:text="#{plantilla.titulo}"></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/estilos.css"/>
     </head>
     <body>
-        <header th:fragment="header">
+        <header class="header" th:fragment="header">
             <h1 th:text="#{plantilla.titulo}"></h1>
         </header>
-        <footer th:fragment="footer">
-            <p><span th:text="#{plantilla.desarrollado}"></span><a href="https://www.ramesptop.com">Ramesptopweb</a><span th:text="#{plantilla.year}"></span></p>
-        </footer>        
+        <footer class="footer" th:fragment="footer">
+            <div class="fila1">
+            <p>Lenguaje/Language: <a th:href="@{/(lang = es)}"> ES </a> | 
+                    <a th:href="@{/(lang = en)}"> EN </a> | 
+             </p>           
+             <form th:action="@{/logout}" method="POST">
+                <div class=" d-flex justify-content-center">
+                <b class="text-center"> [[#{plantilla.bienvenido}]] </b> <span class="text-center" sec:authentication="name"> </span> | 
+                <b class="text-center"> [[#{plantilla.roles}]] </b> <span class="text-center" sec:authentication="principal.authorities"> </span> | 
+                <button class=" text-center logout">[[#{plantilla.logout}]]</button>  </div>
+                </div>
+             </form>
+             <div class="fila2">
+                 <p><span class="" th:text="#{plantilla.desarrollado}"> </span> <a href="https://www.ramesptop.com"> Ramesptopweb </a>  <span th:text="#{plantilla.year}"> </span></p>
+             </div>
+         </footer>        
     </body>
 </html>
